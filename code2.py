@@ -13,7 +13,7 @@ consumer_secret = 'EfXmu5vfFd00t3BfX42JbsaNOf3LCC3Is4je5hQfpGuCmvhjDX'
 access_token = '965507672945713152-bZzrscE41RQWctVkm86uGuAv13oo1uB'
 access_token_secret = 'PGvvgnXM5omK0tTQZdtUi3KSLjs6MnjXZx09IVQgqiSST'
 
-connection = Connection('127.0.0.1', 27017)
+connection = Connection('128.226.28.228', 27017)
 db = connection.TwitterStream
 db.tweets.ensure_index("id", unique=True, dropDups=True)
 collection = db.tweets
