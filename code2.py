@@ -48,7 +48,7 @@ with open('tweets.csv', 'wb') as file:
       #   for i in range(len(tweettext)):
       #       tweettext.append(unidecode(tweettext[i]['type']))
       #tweetinfo=[join(tweettext), len(tweettext)]
-    collection.save(tweet_info)
+collection.save(tweet_info)
        #tweetinfo=tweet.entities.get('text', None)
-       writer.writerow(tweet_info)
+writer.writerow(tweet_info)
 
