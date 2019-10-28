@@ -33,7 +33,8 @@ with open('sports.csv', 'wb') as file:
                            lang="en").items():
        print (tweet.author.name)
        print(tweet.author.screen_name)
-
+       mydict= { "Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
+       collection.insert(mydict)
 
        tweet_info = [
            unidecode(tweet.text),
@@ -41,9 +42,8 @@ with open('sports.csv', 'wb') as file:
            tweet.author.location
 
        ]
-      #tweettext= []
       #tweettext= tweet.entities.get('text', None)
-      #if (tweetext != None):
+      #if (tweetext != done):
       #   for i in range(len(tweettext)):
       #       tweettext.append(unidecode(tweettext[i]['type']))
       #tweetinfo=[join(tweettext), len(tweettext)]
@@ -51,5 +51,5 @@ with open('sports.csv', 'wb') as file:
        #tweetinfo=tweet.entities.get('text', None)
        writer.writerow(tweet_info)
        
-       collection.save(tweet_info)
+       
 
