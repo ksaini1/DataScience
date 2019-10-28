@@ -16,7 +16,7 @@ access_token_secret = 'PGvvgnXM5omK0tTQZdtUi3KSLjs6MnjXZx09IVQgqiSST'
 client=MongoClient()
 db=client.sports
 pl=db.pl
-pl.create_index(["id",pymongo.ASCENDING)],unique=True)
+pl.create_index([("id",pymongo.ASCENDING)],unique=True)
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
