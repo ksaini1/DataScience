@@ -4,7 +4,6 @@ import unicodecsv
 from unidecode import unidecode
 from pymongo import MongoClient
 import json
-from pymongo import Connection
 import datetime
 
 ####input your credentials here
