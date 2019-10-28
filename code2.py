@@ -24,13 +24,13 @@ api = tweepy.API(auth)
 #####United Airlines
 # Open/Create a file to append data
 #with open('tweetstry.csv') as file:
-with open('tweets.csv', 'wb') as file:
+with open('sports.csv', 'wb') as file:
     #writer = unicodecsv.writer(file)
     writer = unicodecsv.writer(file, delimiter = ',', quotechar = '"')
     # Write header row.
     writer.writerow(["Tweet","User Name","Location"])
 
-    for tweet in tweepy.Cursor(api.search,q="#iphone11",count=100,
+    for tweet in tweepy.Cursor(api.search,q="#PL",count=100,
                            lang="en").items():
        print (tweet.author.name)
        print(tweet.author.screen_name)
