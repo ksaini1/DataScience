@@ -28,28 +28,28 @@ with open('sports.csv', 'wb') as file:
     writer = unicodecsv.writer(file, delimiter = ',', quotechar = '"')
     # Write header row.
     writer.writerow(["Tweet","User Name","Location"])
-
+    count = 1
+    i = 1
     for tweet in tweepy.Cursor(api.search,q="#pl",count=100,
                            lang="en").items():
-       print (tweet.author.name)
-       print(tweet.author.screen_name)
-       mydict= { "Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
-       collection.insert(mydict)
-
-       tweet_info = [
-           unidecode(tweet.text),
-           tweet.author.screen_name,
-           tweet.author.location
-
-       ]
+        print (tweet.author.name)
+        print(tweet.author.screen_name)
+        mydict= { "_id": i, "Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
+        collection.insert(mydict)
+        i=i+1
+        tweet_info = [
+                unidecode(tweet.text),
+                tweet.author.screen_name,
+                tweet.author.location
+             ]
       #tweettext= tweet.entities.get('text', None)
       #if (tweetext != done):
-      #   for i in range(len(tweettext)):
-      #       tweettext.append(unidecode(tweettext[i]['type']))
-      #tweetinfo=[join(tweettext), len(tweettext)]
+      # ss for i in range(len(tweettext)):
+      #ss      tweettext.append(unidecode(tweettext[i]['type']))
+     #tweetssnfo=[join(tweettext), len(tweettext)]
 
        #tweetinfo=tweet.entities.get('text', None)
-       writer.writerow(tweet_info)
+    writer.writerow(tweet_info)
        
        
 
