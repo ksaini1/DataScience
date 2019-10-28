@@ -13,17 +13,16 @@ consumer_secret = 'EfXmu5vfFd00t3BfX42JbsaNOf3LCC3Is4je5hQfpGuCmvhjDX'
 access_token = '965507672945713152-bZzrscE41RQWctVkm86uGuAv13oo1uB'
 access_token_secret = 'PGvvgnXM5omK0tTQZdtUi3KSLjs6MnjXZx09IVQgqiSST'
 
-connection = Connection('localhost', 27017)
-db = connection.TwitterStream
-db.tweets.ensure_index("id", unique=True, dropDups=True)
-collection = db.tweets
+client=MongoClient()
+db=client.sports
+pl=db.pl
+pl.create_index(["id",pymongo.ASCENDING)],unique=True)
+
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-#####United Airlines
-# Open/Create a file to append data
-#with open('tweetstry.csv') as file:
+
 with open('sports.csv', 'wb') as file:
     #writer = unicodecsv.writer(file)
     writer = unicodecsv.writer(file, delimiter = ',', quotechar = '"')
@@ -42,6 +41,7 @@ with open('sports.csv', 'wb') as file:
            tweet.author.location
 
        ]
+       pl.insert(tweet_info)
       #tweettext= []
       #tweettext= tweet.entities.get('text', None)
       #if (tweetext != None):
@@ -51,5 +51,5 @@ with open('sports.csv', 'wb') as file:
 
        #tweetinfo=tweet.entities.get('text', None)
 writer.writerow(tweet_info)
-collection.save(tweet_info)
+
 
