@@ -45,15 +45,15 @@ u="#trump"
 v="#californiafires"
 
 
-search_results=twitter_api.search.tweets(count=count,q=q,lang="en")
+search_syria=twitter_api.search.tweets(count=count,q=q,lang="en")
 #print(ssarch_results['search_metadata)
 
 
-statuses=search_results["statuses"]
+statsyria=search_syria["statuses"]
 
-since_id_new=statuses[-1]['id']
+since_id_new=statsyria[-1]['id']
 
-for statues in statuses:
+for statues in statsyria:
        try:
               syria.insert(statues)
        except:
@@ -65,12 +65,4 @@ print(tweet_cursor.count())
 user_cursor=syria.distinct("user.id")
 print(len(user_cursor))
 
-#for document in tweet_cursor:
- #      try:
-  #            print('-----')
-   #           print('name:-',document["user"]["name"])
-    #          print('text:-',document["text"])
-     #         print('Created Date:-',document["created_at"])
-      # except:
-       #       print("Error in Encoding")
-        #      pass
+
