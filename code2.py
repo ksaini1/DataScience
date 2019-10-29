@@ -39,20 +39,12 @@ with open('sports.csv', 'wb') as file:
         #collection.insessst(mydict)
         collection.insert(mydict)
         i=i+1
-        print mydict
+        #print mydict
         tweet_info = [
                 unidecode(tweet.text),
                 tweet.author.screen_name,
                 tweet.author.location
              ]
-        
-      #tweetext= tweet.entities.get('text', None)
-      #x(tweetext != done):
-      # ss for i insrange(len(tweettext))
-      #ss ss    tweettsst.append(unidecode(tweettext[i]['type'])s
-     #tweetssnfo=[join(tweettest), len(tweettext)]
-
-       #tweetinfo=tweet.entities.get('text', None)
     writer.writerow(tweet_info)
        
        
