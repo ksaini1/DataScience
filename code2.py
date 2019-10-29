@@ -45,7 +45,7 @@ with open('sports.csv', 'wb') as file:
                 tweet.author.screen_name,
                 tweet.author.location
              ]
-    writer.writerow(tweet_info)
+        writer.writerow(tweet_info)
        
        
 
