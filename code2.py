@@ -30,14 +30,16 @@ with open('sports.csv', 'wb') as file:
     writer.writerow(["Tweet","User Name","Location"])
     count = 1
     i = 1
+    mydict = {}
     for tweet in tweepy.Cursor(api.search,q="#pl",count=100,
                          lang="en").items(10):
         print (tweet.author.name)
         #print(tweet.author.screen_name)
-        mydict= {"Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
-        #collection.insert(mydict)
-        collection.save(mydict)
+        mydict.update({"_id": i, "Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location }) 
+        #collection.insessst(mydict)
+        collection.insert(mydict)
         i=i+1
+        print mydict
         tweet_info = [
                 unidecode(tweet.text),
                 tweet.author.screen_name,
@@ -46,9 +48,9 @@ with open('sports.csv', 'wb') as file:
         
       #tweetext= tweet.entities.get('text', None)
       #x(tweetext != done):
-      # ss for i in range(len(tweettext))
-      #ss      tweettsxt.append(unidecode(tweettext[i]['type']))
-     #tweetssnfo=[join(tweettext), len(tweettext)]
+      # ss for i insrange(len(tweettext))
+      #ss ss    tweettsst.append(unidecode(tweettext[i]['type'])s
+     #tweetssnfo=[join(tweettest), len(tweettext)]
 
        #tweetinfo=tweet.entities.get('text', None)
     writer.writerow(tweet_info)
