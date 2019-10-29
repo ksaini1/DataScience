@@ -24,8 +24,8 @@ tweet_collection.create_index([("id",pymongo.ASCENDING)],unique=True)
 
 count=50
 q="iphone11"
-search_results=twitter_api.search.tweets(count=count,q=q)
-#pprint(search_results['search_metadata'])
+search_results=twitter_api.search.tweets(count=count,q=q,lang="en")
+#print(search_results['search_metadata)
 
 
 statuses=search_results["statuses"]
