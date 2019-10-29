@@ -31,21 +31,23 @@ with open('sports.csv', 'wb') as file:
     count = 1
     i = 1
     for tweet in tweepy.Cursor(api.search,q="#pl",count=100,
-                           lang="en").items():
+                         lang="en").items(10):
         print (tweet.author.name)
-        print(tweet.author.screen_name)
-        mydict= { "_id": i, "Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
-        collection.insert(mydict)
+        #print(tweet.author.screen_name)
+        mydict= {"Tweet": unidecode(tweet.text), "Author Name": tweet.author.screen_name, "Author Location": tweet.author.location } 
+        #collection.insert(mydict)
+        collection.save(mydict)
         i=i+1
         tweet_info = [
                 unidecode(tweet.text),
                 tweet.author.screen_name,
                 tweet.author.location
              ]
-      #tweettext= tweet.entities.get('text', None)
-      #if (tweetext != done):
-      # ss for i in range(len(tweettext)):
-      #ss      tweettext.append(unidecode(tweettext[i]['type']))
+        
+      #tweetext= tweet.entities.get('text', None)
+      #x(tweetext != done):
+      # ss for i in range(len(tweettext))
+      #ss      tweettsxt.append(unidecode(tweettext[i]['type']))
      #tweetssnfo=[join(tweettext), len(tweettext)]
 
        #tweetinfo=tweet.entities.get('text', None)
