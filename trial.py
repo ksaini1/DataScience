@@ -13,7 +13,7 @@ OAUTH_TOKEN_SECRET="PGvvgnXM5omK0tTQZdtUi3KSLjs6MnjXZx09IVQgqiSST"
 
 auth=twitter.oauth.OAuth(OAUTH_TOKEN,OAUTH_TOKEN_SECRET,CONSUMER_KEY,CONSUMER_SECRET)
 twitter_api=twitter.Twitter(auth=auth)
-
+twitter_api1=twitter.Twitter(auth=auth)
 
 
 client=MongoClient()
@@ -37,7 +37,7 @@ californiafires.create_index([("id",pymongo.ASCENDING)],unique=True)
 
 count=10
 q="#syria"
-p="#PL"
+p="#pL"
 r="#brexit"
 s="#oscars"
 t="#forbes"
@@ -59,7 +59,7 @@ for statues in statsyria:
        except:
               pass
 
-search_pl=twitter_api.search.tweets(count=count,p=p,lang="en")
+search_pl=twitter_api.search.tweets(count=count,q=p,lang="en")
 statpl=search_pl["statuses"]
 for statues in statpl:
     try:
