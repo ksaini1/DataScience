@@ -58,6 +58,14 @@ for statues in statsyria:
               syria.insert(statues)
        except:
               pass
+
+search_pl=twitter_api.search.tweets(count=count,p=p,lang="en")
+statpl=search_pl["statuses"]
+for statues in statpl:
+    try:
+        sports.insert(statues)
+    except:
+            pass
        
        
 tweet_cursor=syria.find()
