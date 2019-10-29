@@ -66,8 +66,47 @@ for statues in statpl:
         sports.insert(statues)
     except:
             pass
-       
-       
+
+search_brexit=twitter_api.search.tweets(count=count,q=r,lang="en")
+statbrexit=search_brexit["statuses"]
+for statues in statbrexit:
+    try:
+        brexit.insert(statues)
+    except:
+            pass
+
+search_oscars=twitter_api.search.tweets(count=count,q=s,lang="en")
+statoscars=search_oscars["statuses"]
+for statues in statoscars:
+    try:
+        oscars.insert(statues)
+    except:
+            pass
+
+search_forbes=twitter_api.search.tweets(count=count,q=t,lang="en")
+statforbes=search_forbes["statuses"]
+for statues in statforbes:
+    try:
+        forbes.insert(statues)
+    except:
+            pass
+
+search_trump=twitter_api.search.tweets(count=count,q=u,lang="en")
+stattrump=search_trump["statuses"]
+for statues in stattrump:
+    try:
+        trump.insert(statues)
+    except:
+            pass
+            
+search_californiafires=twitter_api.search.tweets(count=count,q=v,lang="en")
+statcaliforniafires=search_californiafires["statuses"]
+for statues in statcaliforniafires:
+    try:
+        californiafires.insert(statues)
+    except:
+            pass
+            
 tweet_cursor=syria.find()
 print(tweet_cursor.count())
 user_cursor=syria.distinct("user.id")
