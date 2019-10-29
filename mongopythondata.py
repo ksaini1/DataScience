@@ -6,7 +6,7 @@ from pymongo import MongoClient
 MONGO_HOST= 'mongodb://localhost/TwitterStream'  # assuming you have mongoDB installed locally
                                              # and a database called 'TwitteraStream'
 
-WORDS = ['#trump']
+WORDS = ['#laliga']
 
 CONSUMER_KEY = "VWumRz5dQcduRj9FQel4f8qcm"
 CONSUMER_SECRET = "EfXmu5vfFd00t3BfX42JbsaNOf3LCC3Is4je5hQfpGuCmvhjDX"
@@ -54,7 +54,7 @@ class StreamListener(tweepy.StreamListener):
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-#Set up the listener. The 'wait_on_rate_limit=True' is needed to help with Twitter API rate limiting.
+#et up the listener. The 'wait_on_rate_limit=True' is needed to help with Twitter API rate limiting.
 listener = StreamListener(api=tweepy.API(wait_on_rate_limit=True)) 
 streamer = tweepy.Stream(auth=auth, listener=listener)
 print("Tracking: " + str(WORDS))

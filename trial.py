@@ -18,14 +18,35 @@ twitter_api=twitter.Twitter(auth=auth)
 
 client=MongoClient()
 db=client.tweet_db
-tweet_collection=db.tweet_collection
-tweet_collection.create_index([("id",pymongo.ASCENDING)],unique=True)
+syria=db.syria
+syria.create_index([("id",pymongo.ASCENDING)],unique=True)
+sports=db.sports
+sports.create_index([("id",pymongo.ASCENDING)],unique=True)
+brexit=db.brexit
+brexit.create_index([("id",pymongo.ASCENDING)],unique=True)
+oscars=db.oscars
+oscars.create_index([("id",pymongo.ASCENDING)],unique=True)
+forbes=db.forbes
+forbes.create_index([("id",pymongo.ASCENDING)],unique=True)
+trump=db.trump
+trump.create_index([("id",pymongo.ASCENDING)],unique=True)
+californiafires=db.californiafires
+californiafires.create_index([("id",pymongo.ASCENDING)],unique=True)
 
 
-count=50
-q="iphone11"
+
+count=10
+q="#syria"
+p="#PL"
+r="#brexit"
+s="#oscars"
+t="#forbes"
+u="#trump"
+v="#californiafires"
+
+
 search_results=twitter_api.search.tweets(count=count,q=q,lang="en")
-#print(search_results['search_metadata)
+#print(ssarch_results['search_metadata)
 
 
 statuses=search_results["statuses"]
@@ -34,22 +55,22 @@ since_id_new=statuses[-1]['id']
 
 for statues in statuses:
        try:
-              tweet_collection.insert(statues)
+              syria.insert(statues)
        except:
               pass
        
        
-tweet_cursor=tweet_collection.find()
+tweet_cursor=syria.find()
 print(tweet_cursor.count())
-user_cursor=tweet_collection.distinct("user.id")
+user_cursor=syria.distinct("user.id")
 print(len(user_cursor))
 
-for document in tweet_cursor:
-       try:
-              print('-----')
-              print('name:-',document["user"]["name"])
-              print('text:-',document["text"])
-              print('Created Date:-',document["created_at"])
-       except:
-              print("Error in Encoding")
-              pass
+#for document in tweet_cursor:
+ #      try:
+  #            print('-----')
+   #           print('name:-',document["user"]["name"])
+    #          print('text:-',document["text"])
+     #         print('Created Date:-',document["created_at"])
+      # except:
+       #       print("Error in Encoding")
+        #      pass
